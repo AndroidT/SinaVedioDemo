@@ -2,7 +2,7 @@ apply plugin: 'android'
 
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
-    compile project(':sinavideo_playersdk')
+    compile 'com.sina.playersdk:ar:1.0'
 }
 
 android {
