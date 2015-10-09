@@ -1,8 +1,9 @@
 apply plugin: 'android-library'
+apply plugin: 'maven'
 
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
-    compile project(':sinavideo_playercore')
+    compile 'com.sina.playercore:ar:1.0'
 }
 
 android {
@@ -31,5 +32,24 @@ android {
         // by a similar customization.
         debug.setRoot('build-types/debug')
         release.setRoot('build-types/release')
+    }
+}
+
+ext {
+    PUBLISH_GROUP_ID = 'com.sina.playersdk'
+    PUBLISH_ARTIFACT_ID = 'ar'
+    PUBLISH_VERSION = 1.0
+}
+
+uploadArchives {
+    repositories.mavenDeployer {
+//        def deployPath = file(getProperty('aar.deployPath'))
+//        repository(url: "file://${deployPath.absolutePath}")
+        repository(url:"file://D:/Git/mav-repo")
+        pom.project {
+            groupId project.PUBLISH_GROUP_ID
+            artifactId project.PUBLISH_ARTIFACT_ID
+            version project.PUBLISH_VERSION
+        }
     }
 }

@@ -1,1 +1,1 @@
-include ':demo', ':sinavideo_playersdk', ':sinavideo_playercore'
+include ':sinavideo_playersdk'
